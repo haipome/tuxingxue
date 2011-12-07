@@ -148,20 +148,6 @@ class MainWindow(QtGui.QWidget):
 		self.myLine(qp, points[4], points[5])
 		self.myLine(qp, points[5], points[0])
 	
-	def brushColor(self, qp, points):
-		
-		qp.setBrush(self.colors[2])
-		qp.drawPolygon(
-			QtCore.QPointF(points[0][0], points[0][1]),
-			QtCore.QPointF(points[1][0], points[1][1]),
-			QtCore.QPointF(points[4][0], points[4][1]),
-			QtCore.QPointF(points[5][0], points[5][1]), )
-		qp.drawPolygon(
-			QtCore.QPointF(points[2][0], points[2][1]),
-			QtCore.QPointF(points[3][0], points[3][1]),
-			QtCore.QPointF(points[4][0], points[4][1]), )
-		middleP = self.getBaseP(points[2], points[3], 5, 4)
-	
 	def drawLiNingN(self, qp, center, points, n):
 		
 		rad = 180.0 / self.PI
@@ -181,8 +167,7 @@ class MainWindow(QtGui.QWidget):
 			if i == 0:
 				self.drawLiNing(qp, absolutePs, color = True)
 			else:
-				self.drawLiNing(qp, absolutePs)
-			
+				self.drawLiNing(qp, absolutePs, color = False)
 	
 	def final(self, qp):
 		
